@@ -3,9 +3,8 @@
 <ul>
   <% @products.each do |product| %>
     <li>
-      <a href="/products/<%= product.id %>">
-        <%= product.title %>
-      </a>
+      <%= link_to product.title, product %>
     </li>
   <% end %>
 </ul>
+
