@@ -17,10 +17,19 @@
 
   <div>
     <%= form.label :color %><br>
-    <%= form.text_area :color %><br>
+    <%= form.text_field :color %><br>
     <% product.errors.full_messages_for(:color).each do |message| %>
       <div><%= message %></div>
     <% end %>
+  </div>
+
+  <div>
+    <%= form.label :brand_id %><br>
+    <%= form.select :brand_id, Brand.all.collect { |p| [ p.title, p.id ] } %>
+    <% product.errors.full_messages_for(:brand_id).each do |message| %>
+      <div>Marka seçimi zorunludur!<%= message %></div>
+    <% end %>
+
   </div>
 
   <div>

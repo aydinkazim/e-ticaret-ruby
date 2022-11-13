@@ -2,6 +2,9 @@
 
 <p> <%= @product.description %> </p>
 
+<p> <%= @product.brand.title %> </p>
+
+
 <ul>
     <li>
         <%= link_to "Edit", edit_product_path(@product) %>

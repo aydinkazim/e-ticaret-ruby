@@ -3,7 +3,7 @@
     <%= form.label :title %><br>
     <%= form.text_field :title %>
     <% brand.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
+      <div> Marka adı boş bırakılamaz! <%= message %></div>
     <% end %>
   </div>
 
