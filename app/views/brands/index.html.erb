@@ -1,0 +1,11 @@
+<h1>Brands</h1>
+
+<ul>
+  <% @brands.each do |brand| %>
+    <li>
+      <%= link_to brand.title, brand %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Brand", new_brand_path %>

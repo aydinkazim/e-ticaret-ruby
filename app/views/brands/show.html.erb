@@ -1,0 +1,14 @@
+<h1> <%= @brand.title %> </h1>
+
+
+<ul>
+    <li>
+        <%= link_to "Edit", edit_brand_path(@brand) %>
+    </li>
+    <li>
+        <%= link_to "Destroy", brand_path(@brand), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+    </li>
+</ul>
