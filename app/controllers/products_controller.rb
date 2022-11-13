@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.includes(:brand).find(params[:id])
   end
 
   def new
@@ -44,6 +44,6 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:title, :description, :color)
+      params.require(:product).permit(:title, :description, :color, :brand_id)
     end
 end
