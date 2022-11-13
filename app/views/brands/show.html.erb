@@ -1,14 +1,14 @@
-<h1> <%= @brand.title %> </h1>
+<h1 class="text-2xl font-bold sm:text-3xl mb-8"> <%= @brand.title %> </h1>
 
 
-<ul>
+<ul class="flex gap-4">
     <li>
-        <%= link_to "Edit", edit_brand_path(@brand) %>
+        <%= link_to "Düzenle", edit_brand_path(@brand), :class => "inline-flex w-full items-center justify-center rounded-lg bg-blue-500 px-5 py-3 text-white w-24 cursor-pointer"  %>
     </li>
     <li>
-        <%= link_to "Destroy", brand_path(@brand), data: {
+        <%= link_to "Sil", brand_path(@brand), data: {
                     turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
+                    turbo_confirm: "Silmek istediğinizden emin misiniz?"
+                  },:class => "inline-flex w-full items-center justify-center rounded-lg bg-red-500 px-5 py-3 text-white w-24 cursor-pointer"  %>
     </li>
 </ul>

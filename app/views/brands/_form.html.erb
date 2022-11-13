@@ -1,13 +1,19 @@
-<%= form_with model: brand do |form| %>
+<div class="border rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+  <%= form_with :class => "grid gap-y-4", model: brand do |form|%>
   <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.label :title, :class => "sr-only" %><br>
+    <%= form.text_field :title, :class => "w-full border-2 rounded-lg border-gray-200 p-3 text-sm", placeholder: "Marka adı"  %>
     <% brand.errors.full_messages_for(:title).each do |message| %>
-      <div> Marka adı boş bırakılamaz! <%= message %></div>
+      <div class="rounded border-l-4 border-red-500 bg-red-50 p-4 mt-2">
+        <strong class="block font-medium text-red-700"> Uyarı </strong>
+        <div class="mt-2 text-sm text-red-700"> Marka adı boş bırakılamaz!</div>
+      </div>
     <% end %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Marka Oluştur", :class => "inline-flex w-full items-center justify-center rounded-lg bg-black px-5 py-3 text-white sm:w-auto cursor-pointer" %>
   </div>
 <% end %>
+
+</div>

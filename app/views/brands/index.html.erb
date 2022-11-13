@@ -1,11 +1,13 @@
-<h1>Brands</h1>
+<h1 class="text-2xl font-bold sm:text-3xl mb-8">Markalar</h1>
 
-<ul>
+<ul class="flex gap-8 mb-8 flex-wrap">
   <% @brands.each do |brand| %>
     <li>
-      <%= link_to brand.title, brand %>
+      <%= link_to brand.title, brand, :class => "flex items-center justify-center rounded-xl border-4 border-black bg-rose-500 px-8 py-4 font-bold shadow-[6px_6px_0_0_#000] transition hover:shadow-none focus:outline-none focus:ring active:bg-rose-50" %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to "New Brand", new_brand_path %>
+
+
+<%= link_to "Yeni Marka Oluştur", new_brand_path, :class => "inline-flex w-full items-center justify-center rounded-lg bg-black px-5 py-3 text-white sm:w-auto cursor-pointer"  %>

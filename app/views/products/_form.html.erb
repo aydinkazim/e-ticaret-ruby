@@ -1,38 +1,50 @@
-<%= form_with model: product do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% product.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+<div class="border rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+  <%= form_with :class => "grid gap-y-4", model: product do |form| %>
+    <div>
+      <%= form.label :title, :class => "sr-only"  %><br>
+      <%= form.text_field :title, :class => "w-full border-2 rounded-lg border-gray-200 p-3 text-sm", placeholder: "Ürün adı" %>
+      <% product.errors.full_messages_for(:title).each do |message| %>
+        <div class="rounded border-l-4 border-red-500 bg-red-50 p-4 mt-2">
+        <strong class="block font-medium text-red-700"> Uyarı </strong>
+        <div class="mt-2 text-sm text-red-700"> Ürün adı boş bırakılamaz!</div>
+      </div>
+      <% end %>
+    </div>
 
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %><br>
-    <% product.errors.full_messages_for(:description).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+    <div>
+      <%= form.label :description, :class => "sr-only" %><br>
+      <%= form.text_area :description, :class => "w-full border-2 rounded-lg border-gray-200 p-3 text-sm", placeholder: "Ürün açıklama" %><br>
+      <% product.errors.full_messages_for(:description).each do |message| %>
+        <div class="rounded border-l-4 border-red-500 bg-red-50 p-4 mt-2">
+        <strong class="block font-medium text-red-700"> Uyarı </strong>
+        <div class="mt-2 text-sm text-red-700"> Ürün açıklama minimum 10 karakter olmalıdır!</div>
+      </div>
+      <% end %>
+    </div>
 
-  <div>
-    <%= form.label :color %><br>
-    <%= form.text_field :color %><br>
-    <% product.errors.full_messages_for(:color).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+    <div>
+      <%= form.label :color, :class => "sr-only" %><br>
+      <%= form.text_field :color, :class => "w-full border-2 rounded-lg border-gray-200 p-3 text-sm", placeholder: "Renk"   %><br>
+      <% product.errors.full_messages_for(:color).each do |message| %>
+        <div class="rounded border-l-4 border-red-500 bg-red-50 p-4 mt-2">
+        <strong class="block font-medium text-red-700"> Uyarı </strong>
+        <div class="mt-2 text-sm text-red-700"> Renk boş bırakılamaz!</div>
+      </div>
+      <% end %>
+    </div>
 
-  <div>
-    <%= form.label :brand_id %><br>
-    <%= form.select :brand_id, Brand.all.collect { |p| [ p.title, p.id ] } %>
-    <% product.errors.full_messages_for(:brand_id).each do |message| %>
-      <div>Marka seçimi zorunludur!<%= message %></div>
-    <% end %>
+    <div>
+      <%= form.label :brand_id, :class => "sr-only" %><br>
+      <%= form.select :brand_id, Brand.all.collect { |b| [ b.title, b.id ] } %>
+      <% product.errors.full_messages_for(:brand_id).each do |message| %>
+        <div>Marka seçimi zorunludur!<%= message %></div>
+      <% end %>
 
-  </div>
+    </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div>
+      <%= form.submit "Ürün Oluştur", :class => "inline-flex w-full items-center justify-center rounded-lg bg-black px-5 py-3 text-white sm:w-auto cursor-pointer" %>
+    </div>
+  <% end %>
+
+</div>
